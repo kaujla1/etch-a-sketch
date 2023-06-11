@@ -1,10 +1,3 @@
-div {
-  border: solid;
-  border-color: black;
-  margin: 3px;
-  padding: 0
-}
-
 .grid-container-padding {
   height: 500px;
   width: 1000px;
@@ -21,6 +14,16 @@ div {
 }
 
 .row {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+}
+
+.cell {
+  border: 1px;
+  border-style: solid;
+  flex: 1;
+  padding: 0;
+  margin: 0;
 }

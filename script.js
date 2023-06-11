@@ -16,7 +16,6 @@ function createRows(numRows) {
   for (i = 0; i < numRows; i++) {
     row = document.createElement("div");
     row.classList.add("row", "row" + i);
-    row.style.height = "20px";
     gridContainer.appendChild(row);
   }
 }
