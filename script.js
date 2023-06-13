@@ -1,11 +1,4 @@
-//create a webpage with a 16x16 grid of square divs
-
-//given a number (x)
-//create x*x divs 
-//format divs so there are only x divs per row 
-//then the rest wrap onto the next line
-//thus creating a x by x grid 
-
+//Create grid
 const gridContainer = document.querySelector(".grid-container")
 
 let numOfDivs = 16;
@@ -22,24 +15,58 @@ function createRows(numRows) {
 
 let newDiv;
 
-/*
-function createDivs(numDivs) {
-  for (i = 0; i < numDivs; i++) {
-    newDiv = document.createElement("div");
-    row = document.querySelector(".row" + i);
-    row.appendChild(newDiv);
-  }
-}*/
-
 function createDivs(divs) {
   for (g = 0; g < divs; g++) {
     for (i = 0; i < divs; i++) {
       newDiv = document.createElement("div");
+      newDiv.classList.add("cell");
       row = document.querySelector(".row" + i);
       row.appendChild(newDiv);
     }
   }
 }
+
+//Add hover effect
+const cells = document.querySelectorAll(".cell");
+
+function colorCell(cell) {
+  cell.target.style.backgroundColor = "black";
+}
+
+gridContainer.addEventListener("mousedown", () => {
+  gridContainer.addEventListener("mouseover", colorCell);
+});
+
+gridContainer.addEventListener("mouseup", () => {
+  gridContainer.removeEventListener("mouseover", colorCell);
+});
+
+//mousedown over gridContainer adds mouseover to each cell, then mouse up over gridContainer removes mouseover
+
+/*Works but no mouseup event to stop colouring 
+gridContainer.addEventListener("mousedown", () => {
+  gridContainer.addEventListener("mouseover", (cell) => {
+    cell.target.style.backgroundColor = "black";
+  });
+});*/
+
+/*adds both but only to the cell that was clicked
+gridContainer.addEventListener("mousedown", (cell) => {
+  cell.target.addEventListener("mouseover", () => {
+    console.log("hi");
+  });
+});*/
+
+/*
+gridContainer.addEventListener("mouseover", (cell) => {
+  cell.target.classList.add("clicked");
+});*/
+
+/*Working version
+gridContainer.addEventListener("mouseover", (cell) => {
+  cell.target.style.backgroundColor = "blue";
+});*/
+
 
 createRows(numOfDivs);
 createDivs(numOfDivs);
