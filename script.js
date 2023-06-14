@@ -1,7 +1,24 @@
-//Create grid
-const gridContainer = document.querySelector(".grid-container")
+//Get grid size
+const slider = document.querySelector(".slider");
 
-let numOfDivs = 16;
+let numOfDivs = slider.value;
+
+function resetGrid(element) {
+  while(element.firstElementChild) {
+     element.firstElementChild.remove();
+  }
+}
+
+slider.oninput = () => {
+  numOfDivs = slider.value;
+  resetGrid(gridContainer);
+  createRows(numOfDivs);
+  createDivs(numOfDivs);
+};
+
+
+//Create grid
+const gridContainer = document.querySelector(".grid-container");
 
 let row;
 
