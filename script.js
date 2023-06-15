@@ -43,7 +43,7 @@ function createDivs(divs) {
   }
 }
 
-//Add hover effect
+//Enable cell coloring 
 const cells = document.querySelectorAll(".cell");
 
 let cellColor = "black";
@@ -52,14 +52,9 @@ function colorCell(cell) {
   if (chosenColor === "black" || chosenColor === "random") {
     cell.target.style.backgroundColor = cellColor;
   } else if (chosenColor = "multi") {
-    let randomColor = Math.floor(Math.random()*16777215).toString(16);
-    cell.target.style.backgroundColor = "#" + randomColor;
+    cell.target.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
   }
 }
-/*
-function colorCell(cell) {
-  cell.target.style.backgroundColor = cellColor;
-}*/
 
 gridContainer.addEventListener("mousedown", () => {
   gridContainer.addEventListener("mouseover", colorCell);
@@ -82,8 +77,7 @@ colorBlackBtn.addEventListener("click", () => {
 });
 
 colorRandomBtn.addEventListener("click", () => {
-  let randomColor = Math.floor(Math.random()*16777215).toString(16);
-  cellColor = "#" + randomColor;
+  cellColor = "#" + Math.floor(Math.random()*16777215).toString(16);
   chosenColor = "random";
 });
 
@@ -91,7 +85,7 @@ colorMultiBtn.addEventListener("click", () => {
   chosenColor = "multi";
 });
 
-//Clear colouring from grid
+//Clear coloring from grid
 const clearButton = document.querySelector(".clear");
 
 clearButton.addEventListener("click", () => {
