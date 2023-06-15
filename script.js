@@ -23,9 +23,9 @@ const gridContainer = document.querySelector(".grid-container");
 let row;
 
 function createRows(numRows) {
-  for (i = 0; i < numRows; i++) {
+  for (i = 1; i <= numRows; i++) {
     row = document.createElement("div");
-    row.classList.add("row", "row" + i);
+    row.classList.add("row", "row" + i); //"row" added to style everything without needing to style each cell individually
     gridContainer.appendChild(row);
   }
 }
@@ -33,10 +33,10 @@ function createRows(numRows) {
 let newDiv;
 
 function createDivs(divs) {
-  for (g = 0; g < divs; g++) {
-    for (i = 0; i < divs; i++) {
+  for (g = 1; g <= divs; g++) {
+    for (i = 1; i <= divs; i++) {
       newDiv = document.createElement("div");
-      newDiv.classList.add("cell");
+      newDiv.classList.add("cell", "cell" + g); //create 1 cell at a time, and adds that same cell to each row once
       row = document.querySelector(".row" + i);
       row.appendChild(newDiv);
     }
@@ -58,33 +58,18 @@ gridContainer.addEventListener("mouseup", () => {
   gridContainer.removeEventListener("mouseover", colorCell);
 });
 
-//mousedown over gridContainer adds mouseover to each cell, then mouse up over gridContainer removes mouseover
 
-/*Works but no mouseup event to stop colouring 
-gridContainer.addEventListener("mousedown", () => {
-  gridContainer.addEventListener("mouseover", (cell) => {
-    cell.target.style.backgroundColor = "black";
-  });
-});*/
+//Clear colouring from grid
+const clearButton = document.querySelector(".clear");
 
-/*adds both but only to the cell that was clicked
-gridContainer.addEventListener("mousedown", (cell) => {
-  cell.target.addEventListener("mouseover", () => {
-    console.log("hi");
-  });
-});*/
-
-/*
-gridContainer.addEventListener("mouseover", (cell) => {
-  cell.target.classList.add("clicked");
-});*/
-
-/*Working version
-gridContainer.addEventListener("mouseover", (cell) => {
-  cell.target.style.backgroundColor = "blue";
-});*/
-
+clearButton.addEventListener("click", () => {
+  for (let i = 1; i <= numOfDivs; i++) {
+    let numberedCells = document.querySelectorAll(".cell" + i); //Needed to can access to the individual cells
+    numberedCells.forEach((cell) => {
+      cell.style.backgroundColor = "white";
+    });
+  }
+});
 
 createRows(numOfDivs);
 createDivs(numOfDivs);
-
