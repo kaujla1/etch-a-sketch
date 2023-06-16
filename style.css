@@ -1,20 +1,52 @@
 body {
+  font-family: 'Press Start 2P';font-size: 22px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.grid-container-padding {
-  height: 500px;
-  width: 1000px;
+.container-padding {
+  height: 600px;
+  width: 1050px;
+  border-style: solid;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+}
+
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+h1 {
+  font-size: 1.25vw;
+}
+
+p {
+  font-size: 0.65vw;
+}
+
+button {
+  font-family: 'Press Start 2P';font-size: 22px;
+  font-size: 0.55vw;
+  background-color: white;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+button:hover {
+  background-color: rgb(241, 242, 240);
+  box-shadow: 0 0 0.5px 0.5px #E0E0E0;
 }
 
 .grid-container {
   height: 550px; /*change these to make dimensions equal in the future*/
   width: 550px;
+  border: 2px;
+  border-style: solid;
   display: flex;
   justify-content: space-evenly;
 }
@@ -27,10 +59,110 @@ body {
 }
 
 .cell {
-  border: 1px;
-  border-style: solid;
   flex: 1;
   padding: 0;
   margin: 0;
 }
 
+/*Styling for range slider (from: https://www.cssportal.com/style-input-range/)*/
+input[type=range] {
+  height: 27px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #E0E0E0;
+  border-radius: 25px;
+  border: 1px solid #8A8A8A;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #828282;
+  border: 1px solid #8A8A8A;
+  height: 19px;
+  width: 30px;
+  border-radius: 0px;
+  background: #DADADA;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5.5px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #E0E0E0;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #E0E0E0;
+  border-radius: 25px;
+  border: 1px solid #8A8A8A;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #828282;
+  border: 1px solid #8A8A8A;
+  height: 19px;
+  width: 30px;
+  border-radius: 0px;
+  background: #DADADA;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #E0E0E0;
+  border: 1px solid #8A8A8A;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #E0E0E0;
+  border: 1px solid #8A8A8A;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #828282;
+  border: 1px solid #8A8A8A;
+  height: 19px;
+  width: 30px;
+  border-radius: 0px;
+  background: #DADADA;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #E0E0E0;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #E0E0E0;
+}
