@@ -16,7 +16,6 @@ slider.oninput = () => {
   createDivs(numOfDivs);
 };
 
-
 //Create grid
 const gridContainer = document.querySelector(".grid-container");
 
