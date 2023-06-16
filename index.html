@@ -5,25 +5,30 @@
     <meta charset="utf-8">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
-    <!--Connect to font api-->
+    <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
     <script src="script.js" defer></script>
   </head>
 
   <body>
-    <div class="control-panel">
-      <h1>Etch-A-Sketch</h1>
-      <div class="slider-container">
-        <input type="range" min="10" max="100" value="50" class="slider">
+     <div class="container-padding">
+      <div class="control-panel">
+        <h1>Etch-A-Sketch</h1>
+        <div class="slider-container">
+          <p>Grid size:</p>
+          <input type="range" min="10" max="100" value="50" class="slider">
+        </div>
+        <div class="color-buttons">
+          <p>Pick a color:</p>
+          <button class="color-black">Black</button>
+          <button class="color-random">Random</button>
+          <button class="color-multi">Multi</button>
+        </div>
+        <div class="clear-button-div">
+          <p>Clear grid:</p>
+          <button class="clear">Clear</button>
+        </div>
       </div>
-      <button class="color-black">Black</button>
-      <button class="color-random">Random</button>
-      <button class="color-multi">Multi</button>
-      <button class="clear">Clear</button>
-    </div>
-
-    <div class="grid-container-padding">
-      <div class="grid-container">
-      </div>
+      <div class="grid-container"></div>
     </div>
   </body>
 </html>
